@@ -1,0 +1,82 @@
+.header {
+  nav {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    @include min-width(medium) {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+  }
+  &__logo {
+    width: 121px;
+    height: 33px;
+  }
+  &__links--desktop {
+    flex-grow: 1;
+    margin-left: 48px;
+    li {
+      display: inline-block;
+    }
+    li:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+  &__toggle {
+    position: relative;
+    span {
+      display: block;
+      height: 4px;
+      width: 26px;
+      margin-bottom: 6px;
+      background-color: $neutral-gray;
+      transition: all 0.3s ease-in-out;
+    }
+    &.open {
+      span {
+        position: absolute;
+        right: 0;
+        top: -6px;
+      }
+
+      > span:first-child {
+        transform: rotate(45deg);
+      }
+
+      > span:nth-child(2) {
+        opacity: 0;
+      }
+
+      > span:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  &__overlay {
+    display: none;
+    position: absolute;
+    top: 98px;
+    bottom: 0;
+    flex-direction: column;
+    background-color: $white;
+    text-align: center;
+
+    &--show {
+      display: block;
+    }
+  }
+  &__links--mobile {
+    padding-top: 44px;
+    padding-bottom: 40px;
+    background-color: $primary-dark;
+    border-radius: 12px;
+    color: $white;
+    li {
+      padding-bottom: 36px;
+    }
+    ul:last-child li:first-child {
+      padding-top: 36px;
+      padding-bottom: 26px;
+      border-top: 1px solid $neutral-grayish-violet;
+    }
+  }
+}
