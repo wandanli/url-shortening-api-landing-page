@@ -24,30 +24,42 @@
   &__toggle {
     position: relative;
     span {
+      position: absolute;
+      right: 0;
       display: block;
       height: 4px;
       width: 26px;
-      margin-bottom: 6px;
       background-color: $neutral-gray;
       transition: all 0.3s ease-in-out;
     }
+    span:first-child {
+      top: -10px;
+    }
+    span:nth-child(2),
+    span:nth-child(3) {
+      top: 0px;
+    }
+    span:last-child {
+      top: 10px;
+    }
+
     &.open {
-      span {
-        position: absolute;
-        right: 0;
-        top: -6px;
-      }
-
       > span:first-child {
-        transform: rotate(45deg);
-      }
-
-      > span:nth-child(2) {
+        top: 0;
         opacity: 0;
       }
 
-      > span:last-child {
+      > span:nth-child(2) {
+        transform: rotate(45deg);
+      }
+
+      > span:nth-child(3) {
         transform: rotate(-45deg);
+      }
+
+      > span:last-child {
+        top: 0;
+        opacity: 0;
       }
     }
   }
