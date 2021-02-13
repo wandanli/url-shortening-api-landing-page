@@ -9,10 +9,12 @@
     width: 154%;
     height: auto;
     @include min-width(medium) {
-      position: relative;
-      left: 140px;
+      left: 40px;
       width: 40%;
       transform: scale(1.7);
+    }
+    @include min-width(large) {
+      left: 140px;
     }
   }
   &__content {
@@ -27,11 +29,14 @@
       padding-bottom: 30px;
       @include min-width(medium) {
         padding-bottom: 0;
+        font-size: 4rem;
+      }
+      @include min-width(large) {
         font-size: 7.6rem;
       }
     }
     &__text {
-      @include min-width(medium) {
+      @include min-width(large) {
         font-size: 2.2rem;
       }
     }
@@ -39,7 +44,7 @@
       margin-top: 38px;
       margin-bottom: 88px;
       font-size: $font-large;
-      @include min-width(medium) {
+      @include min-width(large) {
         font-size: 2.2rem;
       }
     }
