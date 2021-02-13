@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
+import LogoImg from "../images/logo.svg";
 
 const Header = () => {
   const [toggler, setToggler] = useState(false);
@@ -7,9 +8,9 @@ const Header = () => {
     <header className="header">
       <nav className="container-px flex flex-jc-sb flex-ai-c">
         <a href="" className="header__logo">
-          <img src="/images/logo.svg" alt="logo" />
+          <img src={LogoImg} alt="logo" />
         </a>
-    
+
         <div className="header__links--desktop hide-for-mobile flex flex-jc-sb flex-ai-c">
           <ul>
             <li>

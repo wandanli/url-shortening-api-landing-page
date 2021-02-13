@@ -1,0 +1,60 @@
+.shorten {
+  @include min-width(medium) {
+    margin-top: 68px;
+  }
+  &__form {
+    flex-direction: column;
+    padding: 24px;
+    border-radius: 10px;
+    background-color: $primary-dark;
+    background-image: url("/images/bg-shorten-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 80px -30px;
+    @include min-width(medium) {
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 58px;
+      border-radius: 16px;
+      background-image: url("/images/bg-shorten-desktop.svg");
+      background-size: 100% 100%;
+      background-position: top left;
+    }
+    &__text {
+      @include min-width(medium) {
+        width: 80%;
+        padding-right: 24px;
+      }
+    }
+    &__input {
+      width: 100%;
+      padding: 18px;
+      border-radius: 4px;
+      &::placeholder {
+        font-family: $font-family-base;
+        font-size: $font-small;
+        color: $neutral-grayish-violet;
+      }
+    }
+    &__em {
+      display: block;
+      margin: 6px 0;
+      font-size: $font-small;
+      color: $secondary-main;
+      @include min-width(medium) {
+        position: absolute;
+      }
+    }
+    &__btn {
+      width: 100%;
+      margin-top: 16px;
+      padding: 16px 0;
+      border-radius: 4px;
+      font-size: $font-medium;
+      @include min-width(medium) {
+        width: 20%;
+        margin-top: 0;
+      }
+    }
+  }
+}
