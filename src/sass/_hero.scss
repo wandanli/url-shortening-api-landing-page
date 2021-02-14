@@ -1,5 +1,6 @@
 .hero {
   flex-direction: column;
+  padding-bottom: 168px;
   @include min-width(medium) {
     flex-direction: row-reverse;
     align-items: center;
@@ -42,7 +43,6 @@
     }
     &__btn {
       margin-top: 38px;
-      margin-bottom: 88px;
       font-size: $font-large;
       @include min-width(large) {
         font-size: 2.2rem;

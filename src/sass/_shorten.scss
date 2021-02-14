@@ -1,6 +1,11 @@
 .shorten {
+  background-color: #f0f1f6;
   @include min-width(medium) {
     margin-top: 68px;
+  }
+  &__wrapper {
+    position: relative;
+    top: -80px;
   }
   &__form {
     flex-direction: column;
@@ -13,7 +18,7 @@
     background-position: 80px -30px;
     @include min-width(medium) {
       flex-direction: row;
-      align-items: flex-start;
+      align-items: center;
       padding: 58px;
       border-radius: 16px;
       background-image: url("/images/bg-shorten-desktop.svg");
@@ -28,11 +33,12 @@
     }
     &__input {
       width: 100%;
-      padding: 18px;
+      padding: 16px;
       border-radius: 4px;
+      font-size: $font-medium;
       &::placeholder {
         font-family: $font-family-base;
-        font-size: $font-small;
+        font-size: $font-medium;
         color: $neutral-grayish-violet;
       }
     }
@@ -54,6 +60,74 @@
       @include min-width(medium) {
         width: 20%;
         margin-top: 0;
+      }
+    }
+  }
+  &__result {
+    position: relative;
+    flex-direction: column;
+    margin-top: 24px;
+    padding: 20px;
+    background-color: $white;
+    border-radius: 8px;
+    @include min-width(medium) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px 16px 32px;
+    }
+    p {
+      padding-bottom: 20px;
+      word-wrap: break-word;
+      @include min-width(medium) {
+        padding-bottom: 0;
+      }
+    }
+    > p {
+      color: $neutral-dark-blue;
+      @include min-width(medium) {
+        width: 50%;
+        padding-right: 26px;
+      }
+      @include min-width(large) {
+        width: 60%;
+        padding-right: 26px;
+      }
+    }
+    &__copy {
+      flex-direction: column;
+      @include min-width(medium) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        left: 0;
+        border-top: 1px solid $neutral-gray;
+        @include min-width(medium) {
+          content: none;
+        }
+      }
+      > p {
+        padding-top: 20px;
+        color: $primary-main;
+        @include min-width(medium) {
+          padding-top: 0;
+          padding-right: 26px;
+        }
+      }
+      button {
+        border-radius: 8px;
+        &.btn--copied {
+          background-color: $primary-dark;
+        }
+        @include min-width(medium) {
+          width: 104px;
+          padding: 12px 0 10px 0;
+        }
       }
     }
   }
