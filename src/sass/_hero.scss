@@ -1,9 +1,10 @@
 .hero {
   flex-direction: column;
-  padding-bottom: 168px;
+  padding-bottom: 86px;
   @include min-width(medium) {
     flex-direction: row-reverse;
     align-items: center;
+    padding-bottom: 68px;
   }
   &__img {
     position: relative;

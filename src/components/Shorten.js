@@ -2,8 +2,8 @@ import React from "react";
 
 const Shorten = () => {
   return (
-    <section className="shorten container-px">
-      <div className="shorten__wrapper">
+    <section className="shorten">
+      <div className="shorten__wrapper container-px">
         <form className="shorten__form flex" action="">
           <div className="shorten__form__text">
             <input

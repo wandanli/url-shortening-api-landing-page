@@ -1,11 +1,21 @@
 .shorten {
-  background-color: #f0f1f6;
-  @include min-width(medium) {
-    margin-top: 68px;
+  position: relative;
+  background-color: $bg;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 86px;
+    background-color: $white;
   }
   &__wrapper {
     position: relative;
-    top: -80px;
+    z-index: 1;
+  }
+  @include min-width(medium) {
+    margin-top: 68px;
   }
   &__form {
     flex-direction: column;
