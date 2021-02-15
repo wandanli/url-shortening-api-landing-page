@@ -1,2 +1,65 @@
 .footer {
+  background-color: $neutral-dark-violet;
+  padding: 50px 0;
+  @include min-width(medium) {
+    padding-top: 70px;
+  }
+  a {
+    display: inline-block;
+  }
+  &__wrapper {
+    text-align: center;
+    @include min-width(medium) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__logo {
+    margin-bottom: 50px;
+    @include min-width(medium) {
+      flex-grow: 1;
+      margin-right: 4%;
+      text-align: left;
+    }
+    @include min-width(large) {
+      margin-right: 6.8%;
+    }
+    path {
+      fill: $white;
+    }
+  }
+  &__links {
+    margin-bottom: 44px;
+    @include min-width(medium) {
+      margin-right: 4%;
+      text-align: left;
+    }
+    @include min-width(large) {
+      margin-right: 6.8%;
+    }
+    > h4 {
+      margin-bottom: 28px;
+      color: $white;
+    }
+    li {
+      margin-bottom: 14px;
+      > a {
+        font-size: $font-small;
+        font-weight: $font-weight-normal;
+        &:hover {
+          color: $primary-main;
+        }
+      }
+    }
+  }
+  &__social-icons {
+    a:not(:last-child) {
+      margin-right: 22px;
+    }
+    a:hover {
+      path {
+        fill: $primary-main;
+      }
+    }
+  }
 }

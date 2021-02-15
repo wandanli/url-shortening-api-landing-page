@@ -38,8 +38,8 @@ const Advanced = () => {
           </p>
         </div>
         <div className="advanced__card__container">
-          {cards.map((card) => (
-            <div className="card">
+          {cards.map((card, cardId) => (
+            <div className="card" key={cardId}>
               <div className="card__icon">
                 <img src={card.icon} alt={`${card.heading}-icon`} />
               </div>

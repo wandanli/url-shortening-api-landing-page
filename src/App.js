@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import Shorten from "./components/Shorten";
 import Advanced from "./components/Advanced";
 import Boost from "./components/Boost";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Shorten />
       <Advanced />
       <Boost />
+      <Footer />
     </Fragment>
   );
 }
