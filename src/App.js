@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Shorten from "./components/Shorten";
 import Advanced from "./components/Advanced";
+import Boost from "./components/Boost";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Hero />
       <Shorten />
       <Advanced />
+      <Boost />
     </Fragment>
   );
 }

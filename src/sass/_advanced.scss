@@ -2,6 +2,9 @@
   padding-top: 98px;
   padding-bottom: 80px;
   background-color: $bg;
+  @include min-width(medium) {
+    padding-bottom: 200px;
+  }
   &__content {
     text-align: center;
     p {
