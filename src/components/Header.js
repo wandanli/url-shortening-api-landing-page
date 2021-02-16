@@ -11,7 +11,7 @@ const Header = () => {
       if (toggler) {
         section.style.display = "none";
       } else {
-        section.style.display = "initial";
+        section.style.display = "";
       }
     });
   }, [toggler]);
