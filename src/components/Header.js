@@ -1,9 +1,18 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LogoImg from "../images/logo.svg";
 
 const Header = () => {
   const [toggler, setToggler] = useState(false);
+
+  useEffect(() => {
+    if (toggler) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [toggler]);
+
   return (
     <header className="header">
       <nav className="container-px flex flex-jc-sb flex-ai-c">
