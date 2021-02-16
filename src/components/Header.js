@@ -6,11 +6,14 @@ const Header = () => {
   const [toggler, setToggler] = useState(false);
 
   useEffect(() => {
-    if (toggler) {
-      document.documentElement.style.overflow = "hidden";
-    } else {
-      document.documentElement.style.overflow = "";
-    }
+    const sections = document.getElementsByTagName("section");
+    Array.from(sections).forEach(function (section) {
+      if (toggler) {
+        section.style.display = "none";
+      } else {
+        section.style.display = "initial";
+      }
+    });
   }, [toggler]);
 
   return (
