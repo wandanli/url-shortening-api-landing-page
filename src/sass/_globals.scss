@@ -11,9 +11,14 @@ html {
   border: 0;
 }
 
+html,
+body,
+#root {
+  overflow-x: hidden;
+}
+
 body {
   width: 100vw;
-  overflow-x: hidden;
   font-family: $font-family-base;
   font-size: $font-medium;
   font-weight: $font-weight-normal;
