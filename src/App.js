@@ -6,6 +6,7 @@ import Shorten from "./components/Shorten";
 import Advanced from "./components/Advanced";
 import Boost from "./components/Boost";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Advanced />
       <Boost />
       <Footer />
+      <ScrollToTop />
     </Fragment>
   );
 }
