@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Shorten = () => {
+  const [longUrl, setLongUrl] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(longUrl);
+  };
   return (
     <section className="shorten">
       <div className="shorten__wrapper container-px">
-        <form className="shorten__form flex" action="">
+        <form className="shorten__form flex" onSubmit={handleSubmit}>
           <div className="shorten__form__text">
             <input
               className="shorten__form__input"
               type="text"
               placeholder="Shorten a link here..."
+              onChange={(e) => setLongUrl(e.target.value)}
             />
             <i className="shorten__form__em">error message</i>
           </div>

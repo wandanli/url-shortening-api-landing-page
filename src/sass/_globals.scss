@@ -11,6 +11,11 @@ html {
   border: 0;
 }
 
+input:focus {
+  outline: none;
+  box-shadow: $primary-main 0px 0px 0px 3px;
+}
+
 html,
 body,
 #root {
@@ -70,6 +75,10 @@ button,
   &:hover {
     color: $white;
     background-color: #9ce2e2;
+  }
+  &:focus {
+    outline: none;
+    border: none;
   }
 }
 
