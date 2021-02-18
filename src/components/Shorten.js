@@ -1,11 +1,56 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Shorten = () => {
   const [longUrl, setLongUrl] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(longUrl);
+    shortenUrl(longUrl);
   };
+
+  const shortenUrl = async (longUrl) => {
+    const apiUrl = "https://api.shrtco.de/v2/shorten";
+    try {
+      const response = await axios.post(apiUrl, { url: longUrl });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // const shortenUrlThen = (longUrl) => {
+  //   const apiUrl = "https://api.shrtco.de/v2/shorten";
+  //   axios
+  //     .post(apiUrl, { url: longUrl })
+  //     .then((response) => {
+  //       console.log(response);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(longUrl);
+  // };
+
+  // useEffect((longUrl) => {
+  //   const apiUrl = "https://api.shrtco.de/v2/shorten";
+  //   axios.post(apiUrl, {
+  //     url: longUrl,
+  //   });
+  // }, []);
+
+  // useEffect(
+  //   (longUrl) => {
+  //     const apiUrl = "https://api.shrtco.de/v2/shorten";
+  //     const shortenUrl = async (longUrl) => {};
+  //   },
+  //   [longUrl]
+  // );
+
   return (
     <section className="shorten">
       <div className="shorten__wrapper container-px">
