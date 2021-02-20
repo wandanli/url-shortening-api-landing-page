@@ -1,12 +1,32 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+const LOCAL_STORAGE_KEY = "list-shorten-results";
+
 const Shorten = () => {
   const [longUrl, setLongUrl] = useState("");
-  const [shortenResults, setShortenResults] = useState(() => {
-    const iniResults = window.localStorage.getItem("shortenResults");
-    return iniResults !== null ? JSON.parse(iniResults) : "";
-  });
+  const [shortenResults, setShortenResults] = useState([]);
+
+  useEffect(() => {
+    // fires when app component mounts to the DOM
+    const storageShortenResults = JSON.parse(
+      window.localStorage.getItem(LOCAL_STORAGE_KEY)
+    );
+    if (storageShortenResults) {
+      storageShortenResults.map((storageShortenResult) => {
+        return (storageShortenResult.isCopied = false);
+      });
+      setShortenResults(storageShortenResults);
+    }
+  }, []);
+
+  useEffect(() => {
+    // fires when shortenResults array gets updated
+    window.localStorage.setItem(
+      LOCAL_STORAGE_KEY,
+      JSON.stringify(shortenResults)
+    );
+  }, [shortenResults]);
 
   const fetch = async (longUrl) => {
     const apiUrl = "https://api.shrtco.de/v2/shorten";
@@ -31,32 +51,18 @@ const Shorten = () => {
     fetch(longUrl);
   };
 
-  const localStorage = (shortenResults) => {
-    if (typeof Storage !== "undefined") {
-      window.localStorage.setItem(
-        "shortenResults",
-        JSON.stringify(shortenResults)
-      );
-      const localStorageItems = JSON.parse(
-        window.localStorage.getItem("shortenResults")
-      );
-      return localStorageItems;
-    } else {
-      document.getElementById("result").innerHTML =
-        "Sorry, your browser does not support Web Storage...";
-    }
-  };
-
-  useEffect(() => {
-    localStorage(shortenResults);
-  }, [shortenResults]);
-
   const handleClick = (index) => {
-    const newResults = [...shortenResults];
-    let newResult = { ...newResults[index] };
-    newResult.copied = true;
-    newResults[index] = newResult;
-    // setShortenResults(newResults);
+    setShortenResults(
+      shortenResults.map((shortenResult, i) => {
+        if (i === index) {
+          return {
+            ...shortenResult,
+            isCopied: !shortenResult.isCopied,
+          };
+        }
+        return shortenResult;
+      })
+    );
   };
 
   return (
@@ -82,38 +88,14 @@ const Shorten = () => {
             <div className="shorten__result__copy flex">
               <p>{shortenResult.shortUrl}</p>
               <button
-                onClick={handleClick(index)}
-                className={`${shortenResult.copied ? "btn--copied" : ""}`}
+                onClick={(e) => handleClick(index)}
+                className={`${shortenResult.isCopied ? "btn--copied" : ""}`}
               >
-                {`${shortenResult.copied ? "copied" : "copy"}`}
+                {`${shortenResult.isCopied ? "copied" : "copy"}`}
               </button>
             </div>
           </div>
         ))}
-
-        {/* <div className="shorten__result flex">
-          <p>https://wwww.frontendmentor.io</p>
-          <div className="shorten__result__copy flex">
-            <p>https://relink/k4kyk</p>
-            <button>copy</button>
-          </div>
-        </div>
-        <div className="shorten__result flex">
-          <p>https://wwww.frontendmentor.io</p>
-          <div className="shorten__result__copy flex">
-            <p>https://relink/k4kyk</p>
-            <button className="btn--copied">copied!</button>
-          </div>
-        </div>
-        <div className="shorten__result flex">
-          <p>
-            https://wwww.frontendmentorrrr.rrr/rrr.ioppppppppppppppijkkujjikkikkjjiiooiooii
-          </p>
-          <div className="shorten__result__copy flex">
-            <p>https://relink/k4kyk</p>
-            <button>copy</button>
-          </div>
-        </div> */}
       </div>
     </section>
   );
