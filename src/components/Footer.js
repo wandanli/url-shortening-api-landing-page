@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 
 const Footer = () => {
@@ -86,9 +87,9 @@ const Footer = () => {
           <div className="footer__links" key={sectionId}>
             <h4>{section.header}</h4>
             <ul>
-              {section.links.map((link) => (
+              {section.links.map((link, index) => (
                 <li>
-                  <a href="" key={link}>
+                  <a href="" key={index}>
                     {link}
                   </a>
                 </li>
