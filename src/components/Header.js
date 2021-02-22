@@ -19,28 +19,68 @@ const Header = () => {
   return (
     <header className="header">
       <nav className="container-px flex flex-jc-sb flex-ai-c">
-        <a href="" className="header__logo">
+        <a
+          href=""
+          className="header__logo"
+          onClick={(e) => {
+            e.preventDefault();
+          }}
+        >
           <img src={LogoImg} alt="logo" />
         </a>
 
         <div className="header__links--desktop hide-for-mobile flex flex-jc-sb flex-ai-c">
           <ul>
             <li>
-              <a href="">Features</a>
+              <a
+                href=""
+                onClick={(e) => {
+                  e.preventDefault();
+                }}
+              >
+                Features
+              </a>
             </li>
             <li>
-              <a href="">Pricing</a>
+              <a
+                href=""
+                onClick={(e) => {
+                  e.preventDefault();
+                }}
+              >
+                Pricing
+              </a>
             </li>
             <li>
-              <a href="">Resources</a>
+              <a
+                href=""
+                onClick={(e) => {
+                  e.preventDefault();
+                }}
+              >
+                Resources
+              </a>
             </li>
           </ul>
           <ul>
             <li>
-              <a href="">Login</a>
+              <a
+                href=""
+                onClick={(e) => {
+                  e.preventDefault();
+                }}
+              >
+                Login
+              </a>
             </li>
             <li>
-              <a className="button-base" href="">
+              <a
+                className="button-base"
+                href=""
+                onClick={(e) => {
+                  e.preventDefault();
+                }}
+              >
                 Sign Up
               </a>
             </li>

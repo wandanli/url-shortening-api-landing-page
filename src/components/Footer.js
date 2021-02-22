@@ -74,7 +74,13 @@ const Footer = () => {
   return (
     <section className="footer">
       <div className="footer__wrapper container-px">
-        <a href="" className="footer__logo">
+        <a
+          href=""
+          className="footer__logo"
+          onClick={(e) => {
+            e.preventDefault();
+          }}
+        >
           <svg xmlns="http://www.w3.org/2000/svg" width="121" height="33">
             <path
               fill="#34313D"
@@ -89,7 +95,13 @@ const Footer = () => {
             <ul>
               {section.links.map((link, index) => (
                 <li>
-                  <a href="" key={index}>
+                  <a
+                    href=""
+                    key={index}
+                    onClick={(e) => {
+                      e.preventDefault();
+                    }}
+                  >
                     {link}
                   </a>
                 </li>
@@ -99,7 +111,13 @@ const Footer = () => {
         ))}
         <div className="footer__social-icons">
           {icons.map((icon, iconId) => (
-            <a href="" key={iconId}>
+            <a
+              href=""
+              key={iconId}
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+            >
               {icon.svg}
             </a>
           ))}
