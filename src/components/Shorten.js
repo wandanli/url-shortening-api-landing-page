@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import axios from "axios";
 
 const LOCAL_STORAGE_KEY = "list-shorten-results";
@@ -57,7 +58,7 @@ const Shorten = () => {
         if (i === index) {
           return {
             ...shortenResult,
-            isCopied: !shortenResult.isCopied,
+            isCopied: true,
           };
         }
         return shortenResult;
@@ -87,12 +88,14 @@ const Shorten = () => {
             <p>{shortenResult.longUrl}</p>
             <div className="shorten__result__copy flex">
               <p>{shortenResult.shortUrl}</p>
-              <button
-                onClick={(e) => handleClick(index)}
-                className={`${shortenResult.isCopied ? "btn--copied" : ""}`}
-              >
-                {`${shortenResult.isCopied ? "copied" : "copy"}`}
-              </button>
+              <CopyToClipboard text={shortenResult.shortUrl}>
+                <button
+                  onClick={(e) => handleClick(index)}
+                  className={`${shortenResult.isCopied ? "btn--copied" : ""}`}
+                >
+                  {`${shortenResult.isCopied ? "copied" : "copy"}`}
+                </button>
+              </CopyToClipboard>
             </div>
           </div>
         ))}
