@@ -60,6 +60,7 @@
       color: $secondary-main;
       @include min-width(medium) {
         position: absolute;
+        left: 0;
         right: 0;
         margin: 6px 58px;
       }
@@ -143,5 +144,8 @@
         }
       }
     }
+  }
+  .loading-spinner {
+    margin-top: 24px;
   }
 }

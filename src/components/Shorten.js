@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { trackPromise } from "react-promise-tracker";
+import { usePromiseTracker } from "react-promise-tracker";
+import LoadingSpinner from "./LoadingSpinner";
 import axios from "axios";
 
 const LOCAL_STORAGE_KEY = "list-shorten-results";
@@ -8,6 +11,7 @@ const Shorten = () => {
   const [longUrl, setLongUrl] = useState("");
   const [shortenResults, setShortenResults] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+  const { promiseInProgress } = usePromiseTracker();
 
   useEffect(() => {
     // fires when app component mounts to the DOM
@@ -36,13 +40,14 @@ const Shorten = () => {
       const response = await axios.get(apiUrl, { params: { url: longUrl } });
       const shortUrl = response.data.result.full_short_link;
       setShortenResults([
-        ...shortenResults,
         {
           longUrl: longUrl,
           shortUrl: shortUrl,
           isCopied: false,
         },
+        ...shortenResults,
       ]);
+      setLongUrl("");
     } catch (error) {
       setErrorMessage(error.response.data.error);
     }
@@ -50,7 +55,8 @@ const Shorten = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(longUrl);
+    setErrorMessage("");
+    trackPromise(fetch(longUrl));
   };
 
   const handleClick = (index) => {
@@ -76,6 +82,7 @@ const Shorten = () => {
               className="shorten__form__input"
               type="text"
               placeholder="Shorten a link here..."
+              value={longUrl}
               onChange={(e) => setLongUrl(e.target.value)}
             />
             <i className="shorten__form__em">{errorMessage}</i>
@@ -84,6 +91,7 @@ const Shorten = () => {
             Shorten It!
           </button>
         </form>
+        {promiseInProgress === true ? <LoadingSpinner /> : null}
         {shortenResults.map((shortenResult, index) => (
           <div className="shorten__result flex" key={index}>
             <p>{shortenResult.longUrl}</p>
