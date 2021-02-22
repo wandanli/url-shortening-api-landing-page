@@ -27,6 +27,7 @@
     background-size: 100% 100%;
     background-position: 80px -30px;
     @include min-width(medium) {
+      position: relative;
       flex-direction: row;
       align-items: center;
       padding: 58px;
@@ -59,6 +60,8 @@
       color: $secondary-main;
       @include min-width(medium) {
         position: absolute;
+        right: 0;
+        margin: 6px 58px;
       }
     }
     &__btn {

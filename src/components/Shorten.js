@@ -7,6 +7,7 @@ const LOCAL_STORAGE_KEY = "list-shorten-results";
 const Shorten = () => {
   const [longUrl, setLongUrl] = useState("");
   const [shortenResults, setShortenResults] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     // fires when app component mounts to the DOM
@@ -43,7 +44,7 @@ const Shorten = () => {
         },
       ]);
     } catch (error) {
-      console.log(error);
+      setErrorMessage(error.response.data.error);
     }
   };
 
@@ -77,7 +78,7 @@ const Shorten = () => {
               placeholder="Shorten a link here..."
               onChange={(e) => setLongUrl(e.target.value)}
             />
-            <i className="shorten__form__em">error message</i>
+            <i className="shorten__form__em">{errorMessage}</i>
           </div>
           <button className="shorten__form__btn" type="submit">
             Shorten It!
