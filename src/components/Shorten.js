@@ -59,7 +59,7 @@ const Shorten = () => {
     trackPromise(fetch(longUrl));
   };
 
-  const handleClick = (index) => {
+  const handleCopyClick = (index) => {
     setShortenResults(
       shortenResults.map((shortenResult, i) => {
         if (i === index) {
@@ -71,6 +71,15 @@ const Shorten = () => {
         return shortenResult;
       })
     );
+  };
+
+  const handleDeleteClick = (index) => {
+    // assigning the list to temp variable
+    const temp = [...shortenResults];
+    // removing the element using splice
+    temp.splice(index, 1);
+    // updating the list
+    setShortenResults(temp);
   };
 
   return (
@@ -99,12 +108,18 @@ const Shorten = () => {
               <p>{shortenResult.shortUrl}</p>
               <CopyToClipboard text={shortenResult.shortUrl}>
                 <button
-                  onClick={(e) => handleClick(index)}
+                  onClick={(e) => handleCopyClick(index)}
                   className={`${shortenResult.isCopied ? "btn--copied" : ""}`}
                 >
                   {`${shortenResult.isCopied ? "copied" : "copy"}`}
                 </button>
               </CopyToClipboard>
+              <button
+                onClick={(e) => handleDeleteClick(index)}
+                className="shorten__result__btn--delete"
+              >
+                Delete
+              </button>
             </div>
           </div>
         ))}

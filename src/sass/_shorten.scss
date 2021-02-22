@@ -144,6 +144,17 @@
         }
       }
     }
+    &__btn--delete {
+      margin-top: 10px;
+      background-color: $neutral-grayish-violet;
+      &:hover {
+        background-color: $neutral-gray;
+      }
+      @include min-width(medium) {
+        margin-top: 0;
+        margin-left: 10px;
+      }
+    }
   }
   .loading-spinner {
     margin-top: 24px;
