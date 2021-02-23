@@ -2,6 +2,8 @@
 
 ## **[Live Demo](https://shortly-app.danicali.me/)** 🎉
 
+![Preview for the URL shortening landing page](./src/images/url-shortening-preview.jpg)
+
 # Description
 
 Responsive landing page solution for one of challenges for [frontendmentor.io](https://www.frontendmentor.io/challenges/url-shortening-api-landing-page-2ce3ob-G)
