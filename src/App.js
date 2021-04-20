@@ -7,6 +7,7 @@ import Advanced from "./components/Advanced";
 import Boost from "./components/Boost";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import GithubLink from "./components/GithubLink";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Boost />
       <Footer />
       <ScrollToTop />
+      <GithubLink />
     </Fragment>
   );
 }
